@@ -15,9 +15,14 @@ const iconMap: Record<string, string> = {
 
 export default function SourceCard({ type, label, selected, onSelect }: SourceCardProps) {
   return (
-    <button onClick={() => onSelect(type)} style={{ flex: 1, background: selected ? "#1a1a1a" : "#0f0f0f", border: selected ? "0.05vw solid #555" : "0.05vw solid #1a1a1a", borderRadius: "0.1vw", padding: "1.5vw", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5vw", transition: "all 0.15s" }}>
-      <span style={{ fontSize: "2vw" }}>{iconMap[type]}</span>
-      <span style={{ fontSize: "0.9vw", color: selected ? "#fff" : "#888", fontFamily: "Inter Tight, sans-serif", fontWeight: 500 }}>{label}</span>
+    <button
+      onClick={() => onSelect(type)}
+      className={`flex flex-col items-center gap-1.5 flex-1 rounded-sm cursor-pointer transition-all duration-150 p-3 ${
+        selected ? "bg-[#1a1a1a] border border-[#555]" : "bg-[#0f0f0f] border border-transparent"
+      }`}
+    >
+      <span className="text-2xl">{iconMap[type]}</span>
+      <span className={`text-xs font-medium ${selected ? "text-white" : "text-[#888]"}`}>{label}</span>
     </button>
   );
 }
