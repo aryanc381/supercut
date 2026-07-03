@@ -1,12 +1,12 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow } from "electron";
 import path from "path";
 
 let win: BrowserWindow | null = null;
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 380,
-    height: 340,
+    width: 390,
+    height: 620,
     resizable: false,
     frame: false,
     transparent: true,
