@@ -4,11 +4,12 @@
   "private": true,
   "main": "dist/main/main/index.js",
   "scripts": {
-    "dev": "vite build --config vite.renderer.config.ts && electron .",
-    "dev:renderer": "vite --config vite.renderer.config.ts",
     "build:main": "tsc -p tsconfig.main.json",
-    "build": "npm run build:main && vite build --config vite.renderer.config.ts",
-    "start": "electron ."
+    "build:renderer": "vite build --config vite.renderer.config.ts",
+    "build": "npm run build:main && npm run build:renderer",
+    "typecheck": "tsc --noEmit -p tsconfig.renderer.json",
+    "start": "electron .",
+    "dev": "npm run build && npm start"
   },
   "dependencies": {
     "electron-updater": "^6.1.0"
